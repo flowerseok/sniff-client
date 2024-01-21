@@ -11,7 +11,10 @@ interface ImageSliderProps {
 }
 
 const ImageSlider = ({ image }: ImageSliderProps) => {
-  const photos = image ? image : [testPerfume, testPerfume, testPerfume];
+  //image=['','','']일 경우 testPerfume로 대체
+  const photos = image.every((img) => img === '')
+    ? [testPerfume, testPerfume, testPerfume]
+    : image;
 
   return (
     <Swiper
